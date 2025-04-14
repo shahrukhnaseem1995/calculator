@@ -31,7 +31,7 @@ jobs:
           pytest --cov=calculator --cov-report=term-missing --cov-report=html
 
       - name: Upload coverage HTML report
-        uses: actions/upload-artifact@v2  # Change to v2
+        uses: actions/upload-artifact@v2  # Make sure this is v2
         with:
           name: coverage-report
-          path: htmlcov  # This is where the HTML coverage report is stored
+          path: htmlcov  # Path to the HTML coverage report
