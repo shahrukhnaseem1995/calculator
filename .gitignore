@@ -1,2 +1,5 @@
 __pycache__/
-*.pycgit 
+*.pyc
+.venv/
+test-logs/
+coverage.xml
