@@ -35,3 +35,15 @@ jobs:
         with:
           name: coverage-report
           path: htmlcov  # Upload the whole htmlcov folder
+                # Step 4: Run tests and generate logs
+      - name: Run tests and generate logs
+        run: |
+          mkdir -p test-logs  # Create a directory to store logs
+          pytest --maxfail=1 --disable-warnings --capture=no > test-logs/test_run_log.txt  # Redirect test output to the log file
+
+      # Step 5: Upload the log files as artifacts
+      - name: Upload test run logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-logs  # Artifact name
+          path: test-logs/test_run_log.txt  # Path to the log file
