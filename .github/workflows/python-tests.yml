@@ -30,8 +30,16 @@ jobs:
         run: |
           pytest --cov=calculator --cov-report=term-missing --cov-report=html
 
+      - name: Debug Directory
+        run: ls -la htmlcov
+
+      - name: List Coverage Files
+        run: |
+          echo "Listing contents of htmlcov directory"
+          ls -R htmlcov
+
       - name: Upload coverage HTML report
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: htmlcov  # This is where the HTML coverage report is stored
+          path: htmlcov/*
