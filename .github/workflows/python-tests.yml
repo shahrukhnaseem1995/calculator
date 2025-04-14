@@ -34,7 +34,7 @@ jobs:
         run: ls -R  # Debugging step to ensure htmlcov folder exists
 
       - name: Upload coverage HTML report
-        uses: actions/upload-artifact@v2.2.0  # Use v2 for stability
+        uses: actions/upload-artifact@v4  # Use v2 for stability
         with:
           name: coverage-report
           path: htmlcov  # Upload the whole htmlcov folder
