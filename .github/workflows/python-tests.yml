@@ -31,12 +31,14 @@ jobs:
           pytest --cov=calculator --cov-report=term-missing --cov-report=html
 
       - name: Debug Directory
-        run: ls -la htmlcov
+        run: |
+          echo "Checking htmlcov directory"
+          ls -la htmlcov || echo "Directory htmlcov does not exist"
 
       - name: List Coverage Files
         run: |
           echo "Listing contents of htmlcov directory"
-          ls -R htmlcov
+          ls -R htmlcov || echo "No files found in htmlcov"
 
       - name: Upload coverage HTML report
         uses: actions/upload-artifact@v3
